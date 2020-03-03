@@ -169,3 +169,34 @@ function isSunday (dateString) {
 }
 /* test */
 //console.log(isSunday("8/3/2020"))
+
+/* bai 8
+ *  @param {String} str
+ */
+function combinationsString(str) {
+
+    if (typeof str === "string") {
+
+        let letters = str.split("")
+        let combi = [];
+        let temp= "";
+        let letLen = Math.pow(2, letters.length);
+        
+        for (let i = 0; i < letLen ; i++){
+            temp= "";
+            for (let j=0;j<letters.length;j++) {
+                if ((i & Math.pow(2,j))){ 
+                    temp += letters[j]
+                }
+            }
+            if (temp !== "") {
+                combi.push(temp);
+            }
+        }
+        
+        return combi.join("\n")
+
+    } else return "parameter not is string!"
+}
+/* test */
+//console.log(combinationsString("quang"))
